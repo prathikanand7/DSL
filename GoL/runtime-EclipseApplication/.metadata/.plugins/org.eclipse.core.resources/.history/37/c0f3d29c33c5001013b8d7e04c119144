@@ -1,0 +1,14 @@
+grid TestErrors {
+    cell (99, 5)     // Error: X coordinate out of bounds (0-99)
+    cell (5, 99)     // Error: Y coordinate out of bounds  
+    cell (5, 5)       // OK
+    cell (5, 5)       // Error: Duplicate cell
+    cell (-10, 3)     // Error: Negative X coordinate
+}
+
+rules {
+    survive when 9    // Error: Neighbor count > 8
+    birth when -1     // Error: Negative neighbor count
+    survive when [5..3] // Error: Range min > max
+    birth when [0..9] // Error: Range max > 8
+}

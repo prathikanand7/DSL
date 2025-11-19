@@ -1,0 +1,19 @@
+grid Glider {
+    cell (1, 0)
+    cell (2, 1)
+    cell (0, 2)
+    cell (1, 2)
+    cell (2, 2)
+}
+
+grid Blinker {
+    cell (1, 0)
+    cell (1, 1)
+    cell (1, 2)
+}
+
+rules {
+    survive when 2
+    survive when 3
+    birth when 3
+}

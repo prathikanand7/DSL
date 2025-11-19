@@ -1,0 +1,41 @@
+grammar org.example.GameOfLife with org.eclipse.xtext.common.Terminals
+
+generate gameOfLife "http://www.example.org/GameOfLife"
+
+Model:
+    (gridConfigs += GridConfig)*
+    (ruleConfigs += RuleConfig)*
+;
+
+GridConfig:
+    'grid' name=ID '{'
+        (cells += CellPosition)*
+    '}'
+;
+
+CellPosition:
+    'cell' '(' x=INT ',' y=INT ')'
+;
+
+RuleConfig:
+    'rules' '{'
+        (surviveRules += SurviveRule)*
+        (birthRules += BirthRule)*
+    '}'
+;
+
+SurviveRule:
+    'survive' 'when' neighbors=NeighborCondition
+;
+
+BirthRule:
+    'birth' 'when' neighbors=NeighborCondition
+;
+
+NeighborCondition:
+    (count=INT | range=Range)
+;
+
+Range:
+    '[' min=INT '..' max=INT ']'
+;

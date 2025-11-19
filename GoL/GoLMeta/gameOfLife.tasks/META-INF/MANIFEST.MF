@@ -1,0 +1,28 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: gameOfLife.tasks
+Bundle-ManifestVersion: 2
+Bundle-Name: gameOfLife.tasks
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: gameOfLife.tasks; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.19.0",
+ org.eclipse.emf.ecore,
+ org.eclipse.xtext.xbase.lib;bundle-version="2.40.0",
+ org.eclipse.emf.common,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
+Bundle-RequiredExecutionEnvironment: JavaSE-21
+Export-Package: gameOfLife.tasks.taskDSL.util,
+ gameOfLife.tasks.parser.antlr,
+ gameOfLife.tasks.taskDSL,
+ gameOfLife.tasks.scoping,
+ gameOfLife.tasks.taskDSL.impl,
+ gameOfLife.tasks,
+ gameOfLife.tasks.serializer,
+ gameOfLife.tasks.services,
+ gameOfLife.tasks.parser.antlr.internal,
+ gameOfLife.tasks.generator,
+ gameOfLife.tasks.validation
+Import-Package: org.apache.log4j

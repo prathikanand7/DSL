@@ -1,0 +1,42 @@
+grammar gameoflife.dsl.GameOfLifeDSL with org.eclipse.xtext.common.Terminals
+
+generate gameOfLifeDSL "http://www.dsl.gameoflife/GameOfLifeDSL"
+
+Model:
+    (grids += Grid)*
+    (rules += Rules)?
+;
+
+Grid:
+    'grid' name=ID '{'
+        (liveCells += Cell)*
+    '}'
+;
+
+Cell:
+    'cell' '(' x=INT ',' y=INT ')'
+;
+
+Rules:
+    'rules' '{'
+        surviveRules += SurviveRule*
+        birthRules += BirthRule*
+    '}'
+;
+
+SurviveRule:
+    'survive' 'when' neighbors=NeighborCondition
+;
+
+BirthRule:
+    'birth' 'when' neighbors=NeighborCondition
+;
+
+NeighborCondition:
+    count=INT
+    | range=Range
+;
+
+Range:
+    '[' min=INT '..' max=INT ']'
+;

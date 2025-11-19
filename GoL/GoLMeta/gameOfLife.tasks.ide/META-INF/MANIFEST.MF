@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: gameOfLife.tasks.ide
+Bundle-ManifestVersion: 2
+Bundle-Name: gameOfLife.tasks.ide
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: gameOfLife.tasks.ide; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: gameOfLife.tasks,
+ org.eclipse.xtext.ide,
+ org.eclipse.xtext.xbase.ide,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
+Bundle-RequiredExecutionEnvironment: JavaSE-21
+Export-Package: gameOfLife.tasks.ide.contentassist.antlr,
+ gameOfLife.tasks.ide.contentassist.antlr.internal
